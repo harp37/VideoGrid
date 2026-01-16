@@ -49,27 +49,6 @@
 * **Rendering:** Uses the HTML5 Canvas API to capture video frames and render the composite image.
 * **Bitrate Calculation:** Calculated as `(File Size in MB) / (Duration in Seconds)`.
 
-## 📝 Changelog
-
-**v0.4.4**
-
-* Updated Bitrate calculation to display in **MB/s** instead of kbps.
-
-**v0.4.3**
-
-* Added Resolution to the exported image header.
-* Added comma formatting to frame counts in the export.
-* Aligned export typography with UI stats.
-
-**v0.4.2**
-
-* Added “Resolution” display to the stats bar.
-* Added formatting (commas) to frame count displays.
-
-**v0.4.1**
-
-* Added “Clean Title” utility button to strip filename characters and common resolution tags.
-
 ## 📄 License
 
 This project is open-source. Feel free to modify and distribute it as needed.
