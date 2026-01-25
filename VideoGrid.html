@@ -673,6 +673,44 @@
         .btn-cancel { background: var(--input-bg); color: var(--text-color); min-width: 100px; border: 1px solid var(--input-border);}
         .btn-cancel:hover { background: var(--input-border); }
 
+        .text-overlay-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            padding: 12px 15px;
+            background: var(--input-bg);
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+        }
+
+        .text-overlay-controls label {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .text-overlay-controls input[type="text"] {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .thumb-text-overlay {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 3px 6px;
+            font-size: 11px;
+            border-radius: 3px;
+            pointer-events: none;
+            font-family: monospace;
+            max-width: calc(100% - 12px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
         /* Collapsible Section */
         .collapsible-header {
             display: flex;
@@ -777,6 +815,7 @@
                             <option value="6">6</option>
                             <option value="7">7</option>
                             <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                     </div>
                     <span>×</span>
@@ -790,6 +829,7 @@
                             <option value="6" selected>6</option>
                             <option value="7">7</option>
                             <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                     </div>
                 </div>
@@ -902,10 +942,10 @@
                         <select id="outputGridGap">
                             <option value="0">None</option>
                             <option value="50">Tiny</option>
-                            <option value="75" selected>Medium</option>
-                            <option value="100">Wide</option>
-                            <option value="150">Extra Wide</option>
-                            <option value="200">Postcard</option>
+                            <option value="100" selected>Medium</option>
+                            <option value="150">Wide</option>
+                            <option value="200">Extra Wide</option>
+                            <option value="300">Postcard</option>
                         </select>
                     </div>
                     <div class="checkbox-group" style="align-self: center;">
@@ -1044,6 +1084,12 @@
                 </div>
             </div>
 
+            <div class="text-overlay-controls">
+                <label for="frameTextInput">Custom Text (Top Left)</label>
+                <input type="text" id="frameTextInput" placeholder="Enter text for this frame..." maxlength="50">
+                <button type="button" id="clearFrameText" class="btn-small">Clear</button>
+            </div>
+
             <div id="currentTimeDisplay" style="color: var(--accent-color); font-weight: bold; font-family: monospace;">00:00</div>
             
             <div class="modal-actions">
@@ -1124,6 +1170,8 @@
         const currentTimeDisplay = document.getElementById('currentTimeDisplay');
         const startTimeLabel = document.getElementById('startTimeLabel');
         const endTimeLabel = document.getElementById('endTimeLabel');
+        const frameTextInput = document.getElementById('frameTextInput');
+        const clearFrameTextBtn = document.getElementById('clearFrameText');
 
         // --- State ---
         let videoFile = null;
@@ -1687,8 +1735,13 @@
                 info.className = 'thumb-info';
                 info.innerText = formatTime(time);
 
+                const textOverlay = document.createElement('div');
+                textOverlay.className = 'thumb-text-overlay';
+                textOverlay.style.display = 'none';
+
                 cell.appendChild(canvas);
                 cell.appendChild(info);
+                cell.appendChild(textOverlay);
                 cell.onclick = () => openEditor(i);
                 
                 gridContainer.appendChild(cell);
@@ -1699,7 +1752,9 @@
                     segStart: segStart,
                     segEnd: segEnd,
                     canvas: canvas,
-                    infoEl: info
+                    infoEl: info,
+                    textOverlayEl: textOverlay,
+                    customText: ''
                 });
             }
 
@@ -1744,6 +1799,8 @@
             editCanvas.height = hiddenVideo.videoHeight;
             
             updatePreview(data.time);
+
+            frameTextInput.value = data.customText || '';
             
             editModal.classList.add('active');
         }
@@ -1781,13 +1838,26 @@
             const data = gridData[currentEditIndex];
             
             data.time = newTime;
+            data.customText = frameTextInput.value.trim();
             data.infoEl.innerText = formatTime(newTime);
+            
+            // Update text overlay visibility
+            if (data.customText) {
+                data.textOverlayEl.textContent = data.customText;
+                data.textOverlayEl.style.display = 'block';
+            } else {
+                data.textOverlayEl.style.display = 'none';
+            }
             
             await captureFrame(newTime, data.canvas);
             closeModal();
         });
 
         cancelEditBtn.addEventListener('click', closeModal);
+
+        clearFrameTextBtn.addEventListener('click', () => {
+            frameTextInput.value = '';
+        });
 
         function closeModal() {
             editModal.classList.remove('active');
@@ -1918,7 +1988,7 @@
 
             // --- DRAW GRID ---
             const gridStartY = headerHeight + gap;
-            const cornerRadius = roundedCorners ? Math.floor(thumbW * 0.02) : 0;
+            const cornerRadius = roundedCorners ? Math.floor(thumbW * 0.05) : 0;
 
             gridData.forEach((item, i) => {
                 const row = Math.floor(i / cols);
@@ -1966,6 +2036,36 @@
                     ctx.textBaseline = "top";
                     ctx.fillText(timeStr, badgeX + (tsFontSize/4), badgeY + (tsFontSize/4));
                 }
+
+                // Draw custom text overlay (top left)
+                if (item.customText && item.customText.length > 0) {
+                    const txtFontSize = Math.max(10, Math.floor(thumbH * 0.08));
+                    ctx.font = `bold ${txtFontSize}px Arial`;
+                    
+                    const customText = item.customText;
+                    const txtMetrics = ctx.measureText(customText);
+                    const txtWidth = txtMetrics.width + (txtFontSize / 2);
+                    const txtHeight = txtFontSize + (txtFontSize / 2);
+                    
+                    const txtBadgeX = x + (thumbW * 0.02);
+                    const txtBadgeY = y + (thumbH * 0.02);
+                    
+                    // Text background with opacity
+                    ctx.fillStyle = hexToRgba(tsBgColor, 0.7);
+                    
+                    if (roundedCorners) {
+                        roundedRect(ctx, txtBadgeX, txtBadgeY, txtWidth, txtHeight, 3);
+                        ctx.fill();
+                    } else {
+                        ctx.fillRect(txtBadgeX, txtBadgeY, txtWidth, txtHeight);
+                    }
+                    
+                    ctx.fillStyle = tsTextColor;
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "top";
+                    ctx.fillText(customText, txtBadgeX + (txtFontSize / 4), txtBadgeY + (txtFontSize / 4));
+                }
+
             });
             
             // --- HANDLE FORMATS ---
