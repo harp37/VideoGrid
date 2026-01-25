@@ -390,19 +390,23 @@
         /* Output Style Panel */
         .output-style-panel {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            padding: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px 25px;
+            padding: 20px;
             background: var(--input-bg);
             border-radius: 8px;
             border: 1px solid var(--input-border);
+            width: 100%;
         }
 
         .output-preset-chips {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
         }
 
         .preset-chip {
@@ -821,21 +825,34 @@
         </div>
 
         <!-- Output Style Customization -->
-        <div class="control-row" style="flex-direction: column;">
-            <div class="collapsible-header" id="outputStyleHeader">
+        <div class="control-row" style="flex-direction: column; align-items: stretch;">
+            <div class="collapsible-header" id="outputStyleHeader" style="width: 100%;">
                 <label style="cursor: pointer; margin: 0;">🎨 Output Image Style</label>
                 <span class="toggle-icon">▼</span>
             </div>
-            <div class="collapsible-content" id="outputStyleContent">
-                <div class="output-preset-chips">
-                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-right: 10px;">Presets:</span>
-                    <div class="preset-chip" data-preset="dark">Dark</div>
-                    <div class="preset-chip" data-preset="light">Light</div>
-                    <div class="preset-chip" data-preset="midnight">Midnight</div>
-                    <div class="preset-chip" data-preset="sepia">Sepia</div>
-                    <div class="preset-chip" data-preset="neon">Neon</div>
-                    <div class="preset-chip" data-preset="minimal">Minimal</div>
-                </div>
+            <div class="output-preset-chips">
+                <span style="font-size: 0.8rem; color: var(--text-muted); margin-right: 10px;">Presets:</span>
+                <div class="preset-chip" data-preset="dark">Dark</div>
+                <div class="preset-chip" data-preset="light">Light</div>
+                <div class="preset-chip" data-preset="midnight">Midnight</div>
+                <div class="preset-chip" data-preset="sepia">Sepia</div>
+                <div class="preset-chip" data-preset="neon">Neon</div>
+                <div class="preset-chip" data-preset="minimal">Minimal</div>
+                <div class="preset-chip" data-preset="ocean">Ocean</div>
+                <div class="preset-chip" data-preset="forest">Forest</div>
+                <div class="preset-chip" data-preset="sunset">Sunset</div>
+                <div class="preset-chip" data-preset="lavender">Lavender</div>
+                <div class="preset-chip" data-preset="cherry">Cherry</div>
+                <div class="preset-chip" data-preset="arctic">Arctic</div>
+                <div class="preset-chip" data-preset="slate">Slate</div>
+                <div class="preset-chip" data-preset="ember">Ember</div>
+                <div class="preset-chip" data-preset="matrix">Matrix</div>
+                <div class="preset-chip" data-preset="noir">Noir</div>
+                <div class="preset-chip" data-preset="paper">Paper</div>
+                <div class="preset-chip" data-preset="cyberpunk">Cyberpunk</div>
+                <div class="preset-chip" data-preset="coffee">Coffee</div>
+                <div class="preset-chip" data-preset="monochrome">Mono</div>
+            </div>
                 <div class="output-style-panel">
                     <div class="color-input-group">
                         <label>Background</label>
@@ -917,9 +934,9 @@
                 <select id="exportQuality" style="min-width: 100px;">
                     <option value="0.7">70%</option>
                     <option value="0.8">80%</option>
-                    <option value="0.92" selected>92%</option>
+                    <option value="0.92">92%</option>
                     <option value="0.95">95%</option>
-                    <option value="1.0">100%</option>
+                    <option value="1.0" selected>100%</option>
                 </select>
             </div>
 
@@ -1164,6 +1181,104 @@
                 title: '#000000',
                 meta: '#888888',
                 tsBg: '#000000',
+                tsColor: '#ffffff'
+            },
+            ocean: {
+                bg: '#0c1929',
+                title: '#7dd3fc',
+                meta: '#38bdf8',
+                tsBg: '#0369a1',
+                tsColor: '#e0f2fe'
+            },
+            forest: {
+                bg: '#0f1f0f',
+                title: '#86efac',
+                meta: '#4ade80',
+                tsBg: '#14532d',
+                tsColor: '#dcfce7'
+            },
+            sunset: {
+                bg: '#1a0a0a',
+                title: '#fbbf24',
+                meta: '#f97316',
+                tsBg: '#7c2d12',
+                tsColor: '#fef3c7'
+            },
+            lavender: {
+                bg: '#1a1025',
+                title: '#e9d5ff',
+                meta: '#c084fc',
+                tsBg: '#581c87',
+                tsColor: '#f3e8ff'
+            },
+            cherry: {
+                bg: '#1a0510',
+                title: '#fda4af',
+                meta: '#fb7185',
+                tsBg: '#881337',
+                tsColor: '#ffe4e6'
+            },
+            arctic: {
+                bg: '#f0f9ff',
+                title: '#0c4a6e',
+                meta: '#0284c7',
+                tsBg: '#075985',
+                tsColor: '#ffffff'
+            },
+            slate: {
+                bg: '#1e293b',
+                title: '#f1f5f9',
+                meta: '#94a3b8',
+                tsBg: '#334155',
+                tsColor: '#e2e8f0'
+            },
+            ember: {
+                bg: '#0c0804',
+                title: '#fcd34d',
+                meta: '#d97706',
+                tsBg: '#451a03',
+                tsColor: '#fef3c7'
+            },
+            matrix: {
+                bg: '#000000',
+                title: '#00ff41',
+                meta: '#008f11',
+                tsBg: '#001100',
+                tsColor: '#00ff41'
+            },
+            noir: {
+                bg: '#0a0a0a',
+                title: '#e5e5e5',
+                meta: '#737373',
+                tsBg: '#171717',
+                tsColor: '#d4d4d4'
+            },
+            paper: {
+                bg: '#faf8f5',
+                title: '#292524',
+                meta: '#78716c',
+                tsBg: '#44403c',
+                tsColor: '#fafaf9'
+            },
+            cyberpunk: {
+                bg: '#0d0015',
+                title: '#ff00ff',
+                meta: '#00d9ff',
+                tsBg: '#1a0033',
+                tsColor: '#ffff00'
+            },
+            coffee: {
+                bg: '#1c1210',
+                title: '#d4a574',
+                meta: '#a67c52',
+                tsBg: '#2c1810',
+                tsColor: '#f5deb3'
+            },
+            monochrome: {
+                bg: '#181818',
+                title: '#ffffff',
+                meta: '#808080',
+                tsBg: '#282828',
                 tsColor: '#ffffff'
             }
         };
