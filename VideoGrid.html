@@ -942,10 +942,11 @@
                         <select id="outputGridGap">
                             <option value="0">None</option>
                             <option value="50">Tiny</option>
-                            <option value="100" selected>Medium</option>
-                            <option value="150">Wide</option>
+                            <option value="100">Compact</option>
+                            <option value="150" selected>Wide</option>
                             <option value="200">Extra Wide</option>
-                            <option value="300">Postcard</option>
+                            <option value="300">Postcards</option>
+                            <option value="400">Tiny Postcards</option>
                         </select>
                     </div>
                     <div class="checkbox-group" style="align-self: center;">
@@ -1015,7 +1016,11 @@
         <div class="stat-item" style="grid-column: span 4;">
             <div class="stat-header">
                 <label for="videoTitleEdit">Video Title (Editable)</label>
-                <button id="cleanTitleBtn" class="btn-small" title="Remove dots, resolutions, and extra spaces">✨ Clean Title</button>
+                <div style="display: flex; gap: 5px;">
+                    <button id="cleanTitleBtn" class="btn-small" title="Remove dots, resolutions, and extra spaces">✨ Clean</button>
+                    <button id="titleCaseBtn" class="btn-small" title="Convert to Title Case">Title Case</button>
+                    <button id="allCapsBtn" class="btn-small" title="Convert to ALL CAPS">ALL CAPS</button>
+                </div>
             </div>
             <input type="text" id="videoTitleEdit" placeholder="Video Title">
         </div>
@@ -1699,6 +1704,18 @@
             videoTitleEdit.value = text;
         });
 
+        // Title Case Button
+        document.getElementById('titleCaseBtn').addEventListener('click', () => {
+            let text = videoTitleEdit.value;
+            text = text.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
+            videoTitleEdit.value = text;
+        });
+
+        // All Caps Button
+        document.getElementById('allCapsBtn').addEventListener('click', () => {
+            videoTitleEdit.value = videoTitleEdit.value.toUpperCase();
+        });
+
         // 2. Generate Grid
         generateBtn.addEventListener('click', async () => {
             if (!videoLoaded) return;
@@ -1743,7 +1760,7 @@
                 cell.appendChild(info);
                 cell.appendChild(textOverlay);
                 cell.onclick = () => openEditor(i);
-                
+
                 gridContainer.appendChild(cell);
 
                 gridData.push({
