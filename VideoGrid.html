@@ -399,6 +399,31 @@
             width: 100%;
         }
 
+        /* Options Row - Single Line */
+        .options-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+            flex-wrap: wrap;
+            grid-column: 1 / -1;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5px;
+        }
+
+        .options-row .control-group.compact {
+            gap: 4px;
+        }
+
+        .options-row .control-group.compact select {
+            padding: 8px 10px;
+            min-width: 100px;
+        }
+
+        .options-row .checkbox-group {
+            padding-bottom: 4px;
+        }
+
         .output-preset-chips {
             display: flex;
             gap: 8px;
@@ -896,72 +921,128 @@
                 <div class="preset-chip" data-preset="monochrome">Mono</div>
             </div>
                 <div class="output-style-panel">
-                    <div class="color-input-group">
-                        <label>Background</label>
-                        <input type="color" id="outputBgColor" value="#111111">
-                    </div>
-                    <div class="color-input-group">
-                        <label>Title</label>
-                        <input type="color" id="outputTitleColor" value="#ffffff">
-                    </div>
-                    <div class="color-input-group">
-                        <label>Metadata</label>
-                        <input type="color" id="outputMetaColor" value="#aaaaaa">
-                    </div>
-                    <div class="color-input-group">
-                        <label>Timestamp BG</label>
-                        <input type="color" id="outputTimestampBg" value="#000000">
-                    </div>
-                    <div class="color-input-group">
-                        <label>Timestamp Text</label>
-                        <input type="color" id="outputTimestampColor" value="#ffffff">
-                    </div>
-                    <div class="control-group">
-                        <label>Font Family</label>
-                        <select id="outputFontFamily">
-                            <option value="Impact, sans-serif">Impact</option>
-                            <option value="Helvetica Neue, Helvetica, sans-serif">Helvetica</option>
-                            <option value="Trebuchet MS, sans-serif">Trebuchet MS</option>
-                            <option value="Courier New, monospace">Courier New</option>
-                            <option value="Segoe UI, Arial, sans-serif">Segoe UI</option>
-                            <option value="Verdana, sans-serif">Verdana</option>
-                            <option value="Georgia, serif">Georgia</option>
-                            <option value="Times New Roman, serif">Times New Roman</option>
-                            <option value="Arial, Helvetica, sans-serif">Arial</option>
-                            <option value="custom">Custom (Upload...)</option>
-                        </select>
-                        <input type="file" id="customFontInput" accept=".ttf,.otf,.woff,.woff2" style="display: none;">
-                        <span id="customFontName" style="font-size: 0.75rem; color: var(--success-color); display: none; margin-top: 4px;"></span>
-                    </div>
-                    <div class="control-group">
-                        <label>Title Weight</label>
-                        <select id="outputTitleWeight">
-                            <option value="700">Bold</option>
-                            <option value="600">Semi-Bold</option>
-                            <option value="400">Regular</option>
-                            <option value="300">Light</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <label>Grid Gap</label>
-                        <select id="outputGridGap">
-                            <option value="0">None</option>
-                            <option value="100">Compact</option>
-                            <option value="200" selected>Wide</option>
-                            <option value="300">Extra Wide</option>
-                            <option value="400">Postcard</option>
-                        </select>
-                    </div>
-                    <div class="checkbox-group" style="align-self: center;">
-                        <input type="checkbox" id="outputShowTimestamps" checked>
-                        <label for="outputShowTimestamps" class="checkbox-label">Show Timestamps</label>
-                    </div>
-                    <div class="checkbox-group" style="align-self: center;">
-                        <input type="checkbox" id="outputRoundedCorners" checked>
-                        <label for="outputRoundedCorners" class="checkbox-label">Rounded Corners</label>
-                    </div>
-                </div>
+    <div class="color-input-group">
+        <label>Background</label>
+        <input type="color" id="outputBgColor" value="#111111">
+    </div>
+    <div class="color-input-group">
+        <label>Title</label>
+        <input type="color" id="outputTitleColor" value="#ffffff">
+    </div>
+    <div class="color-input-group">
+        <label>Metadata</label>
+        <input type="color" id="outputMetaColor" value="#aaaaaa">
+    </div>
+    <div class="color-input-group">
+        <label>Timestamp BG</label>
+        <input type="color" id="outputTimestampBg" value="#000000">
+    </div>
+    <div class="color-input-group">
+        <label>Timestamp Text</label>
+        <input type="color" id="outputTimestampColor" value="#ffffff">
+    </div>
+    <div class="control-group">
+        <label>Font Family</label>
+            <select id="outputFontFamily">
+                <optgroup label="Sans-Serif">
+                    <option value="Segoe UI, Arial, sans-serif">Segoe UI</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial</option>
+                    <option value="Helvetica Neue, Helvetica, sans-serif">Helvetica</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="Tahoma, sans-serif">Tahoma</option>
+                    <option value="Trebuchet MS, sans-serif">Trebuchet MS</option>
+                    <option value="Calibri, sans-serif">Calibri</option>
+                    <option value="Candara, sans-serif">Candara</option>
+                    <option value="Century Gothic, sans-serif">Century Gothic</option>
+                    <option value="Franklin Gothic Medium, sans-serif">Franklin Gothic</option>
+                    <option value="Gill Sans, sans-serif">Gill Sans</option>
+                    <option value="Lucida Sans, Lucida Grande, sans-serif">Lucida Sans</option>
+                    <option value="Optima, sans-serif">Optima</option>
+                    <option value="Futura, sans-serif">Futura</option>
+                    <option value="Arial Black, sans-serif">Arial Black</option>
+                    <option value="Impact, sans-serif">Impact</option>
+                </optgroup>
+                <optgroup label="Serif">
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Times New Roman, serif">Times New Roman</option>
+                    <option value="Palatino Linotype, Palatino, serif">Palatino</option>
+                    <option value="Book Antiqua, Palatino, serif">Book Antiqua</option>
+                    <option value="Garamond, serif">Garamond</option>
+                    <option value="Cambria, serif">Cambria</option>
+                    <option value="Constantia, serif">Constantia</option>
+                    <option value="Didot, serif">Didot</option>
+                    <option value="Baskerville, serif">Baskerville</option>
+                    <option value="Hoefler Text, serif">Hoefler Text</option>
+                    <option value="Bodoni MT, serif">Bodoni</option>
+                    <option value="Rockwell, serif">Rockwell</option>
+                    <option value="Copperplate, Copperplate Gothic Light, serif">Copperplate</option>
+                </optgroup>
+                <optgroup label="Monospace">
+                    <option value="Courier New, monospace">Courier New</option>
+                    <option value="Consolas, monospace">Consolas</option>
+                    <option value="Lucida Console, Monaco, monospace">Lucida Console</option>
+                    <option value="Monaco, monospace">Monaco</option>
+                    <option value="Menlo, monospace">Menlo</option>
+                    <option value="Source Code Pro, monospace">Source Code Pro</option>
+                    <option value="SF Mono, monospace">SF Mono</option>
+                    <option value="Andale Mono, monospace">Andale Mono</option>
+                </optgroup>
+                <optgroup label="Display / Decorative">
+                    <option value="Comic Sans MS, cursive">Comic Sans</option>
+                    <option value="Papyrus, fantasy">Papyrus</option>
+                    <option value="Brush Script MT, cursive">Brush Script</option>
+                    <option value="Luminari, fantasy">Luminari</option>
+                    <option value="Chalkduster, fantasy">Chalkduster</option>
+                    <option value="Marker Felt, fantasy">Marker Felt</option>
+                    <option value="Bradley Hand, cursive">Bradley Hand</option>
+                    <option value="Snell Roundhand, cursive">Snell Roundhand</option>
+                </optgroup>
+                <optgroup label="System">
+                    <option value="system-ui, sans-serif">System Default</option>
+                    <option value="-apple-system, BlinkMacSystemFont, sans-serif">Apple System</option>
+                    <option value="ui-sans-serif, system-ui, sans-serif">UI Sans-Serif</option>
+                    <option value="ui-serif, Georgia, serif">UI Serif</option>
+                    <option value="ui-monospace, monospace">UI Monospace</option>
+                </optgroup>
+                <optgroup label="Custom">
+                    <option value="custom">Upload Font File...</option>
+                </optgroup>
+            </select>
+            <input type="file" id="customFontInput" accept=".ttf,.otf,.woff,.woff2" style="display: none;">
+            <span id="customFontName" style="font-size: 0.75rem; color: var(--success-color); display: none; margin-top: 4px;"></span>
+        </div>
+        
+        <!-- Options Row - All on one line -->
+        <div class="options-row">
+            <div class="control-group compact">
+                <label>Title Weight</label>
+                <select id="outputTitleWeight">
+                    <option value="700">Bold</option>
+                    <option value="600">Semi-Bold</option>
+                    <option value="400">Regular</option>
+                    <option value="300">Light</option>
+                </select>
             </div>
+            <div class="control-group compact">
+                <label>Grid Gap</label>
+                <select id="outputGridGap">
+                    <option value="0">None</option>
+                    <option value="100">Compact</option>
+                    <option value="200" selected>Wide</option>
+                    <option value="300">Extra Wide</option>
+                    <option value="400">Postcard</option>
+                </select>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="outputShowTimestamps" checked>
+                <label for="outputShowTimestamps" class="checkbox-label">Timestamps</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="outputRoundedCorners" checked>
+                <label for="outputRoundedCorners" class="checkbox-label">Rounded</label>
+            </div>
+        </div>
+    </div>
         </div>
 
         <!-- Export & Theme Options Row -->
