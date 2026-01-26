@@ -974,28 +974,82 @@
                 </div>
                 <span class="toggle-icon">▼</span>
             </div>
-            <div class="output-preset-chips">
-                <span style="font-size: 0.8rem; color: var(--text-muted); margin-right: 10px;">Presets:</span>
-                <div class="preset-chip" data-preset="dark">Dark</div>
-                <div class="preset-chip" data-preset="light">Light</div>
-                <div class="preset-chip" data-preset="midnight">Midnight</div>
-                <div class="preset-chip" data-preset="sepia">Sepia</div>
-                <div class="preset-chip" data-preset="neon">Neon</div>
-                <div class="preset-chip" data-preset="minimal">Minimal</div>
-                <div class="preset-chip" data-preset="ocean">Ocean</div>
-                <div class="preset-chip" data-preset="forest">Forest</div>
-                <div class="preset-chip" data-preset="sunset">Sunset</div>
-                <div class="preset-chip" data-preset="lavender">Lavender</div>
-                <div class="preset-chip" data-preset="cherry">Cherry</div>
-                <div class="preset-chip" data-preset="arctic">Arctic</div>
-                <div class="preset-chip" data-preset="slate">Slate</div>
-                <div class="preset-chip" data-preset="ember">Ember</div>
-                <div class="preset-chip" data-preset="matrix">Matrix</div>
-                <div class="preset-chip" data-preset="noir">Noir</div>
-                <div class="preset-chip" data-preset="paper">Paper</div>
-                <div class="preset-chip" data-preset="cyberpunk">Cyberpunk</div>
-                <div class="preset-chip" data-preset="coffee">Coffee</div>
-                <div class="preset-chip" data-preset="monochrome">Mono</div>
+            <div class="output-preset-chips" style="flex-direction: column; align-items: flex-start;">
+                <!-- Dark/Night -->
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); min-width: 70px; text-transform: uppercase;">Dark</span>
+                    <div class="preset-chip" data-preset="dark">Dark</div>
+                    <div class="preset-chip" data-preset="midnight">Midnight</div>
+                    <div class="preset-chip" data-preset="noir">Noir</div>
+                    <div class="preset-chip" data-preset="monochrome">Mono</div>
+                    <div class="preset-chip" data-preset="charcoal">Charcoal</div>
+                    <div class="preset-chip" data-preset="obsidian">Obsidian</div>
+                    <div class="preset-chip" data-preset="abyss">Abyss</div>
+                    <div class="preset-chip" data-preset="graphite">Graphite</div>
+                </div>
+                <!-- Light/Day -->
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); min-width: 70px; text-transform: uppercase;">Light</span>
+                    <div class="preset-chip" data-preset="light">Light</div>
+                    <div class="preset-chip" data-preset="minimal">Minimal</div>
+                    <div class="preset-chip" data-preset="paper">Paper</div>
+                    <div class="preset-chip" data-preset="arctic">Arctic</div>
+                    <div class="preset-chip" data-preset="cream">Cream</div>
+                    <div class="preset-chip" data-preset="snow">Snow</div>
+                    <div class="preset-chip" data-preset="cloud">Cloud</div>
+                    <div class="preset-chip" data-preset="silver">Silver</div>
+                </div>
+                <!-- Warm -->
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); min-width: 70px; text-transform: uppercase;">Warm</span>
+                    <div class="preset-chip" data-preset="sepia">Sepia</div>
+                    <div class="preset-chip" data-preset="sunset">Sunset</div>
+                    <div class="preset-chip" data-preset="ember">Ember</div>
+                    <div class="preset-chip" data-preset="coffee">Coffee</div>
+                    <div class="preset-chip" data-preset="cherry">Cherry</div>
+                    <div class="preset-chip" data-preset="autumn">Autumn</div>
+                    <div class="preset-chip" data-preset="terracotta">Terracotta</div>
+                    <div class="preset-chip" data-preset="rust">Rust</div>
+                    <div class="preset-chip" data-preset="honey">Honey</div>
+                    <div class="preset-chip" data-preset="wine">Wine</div>
+                    <div class="preset-chip" data-preset="copper">Copper</div>
+                </div>
+                <!-- Cool -->
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); min-width: 70px; text-transform: uppercase;">Cool</span>
+                    <div class="preset-chip" data-preset="ocean">Ocean</div>
+                    <div class="preset-chip" data-preset="slate">Slate</div>
+                    <div class="preset-chip" data-preset="lavender">Lavender</div>
+                    <div class="preset-chip" data-preset="mint">Mint</div>
+                    <div class="preset-chip" data-preset="ice">Ice</div>
+                    <div class="preset-chip" data-preset="steel">Steel</div>
+                    <div class="preset-chip" data-preset="twilight">Twilight</div>
+                    <div class="preset-chip" data-preset="sapphire">Sapphire</div>
+                    <div class="preset-chip" data-preset="aqua">Aqua</div>
+                    <div class="preset-chip" data-preset="violet">Violet</div>
+                </div>
+                <!-- Nature -->
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); min-width: 70px; text-transform: uppercase;">Nature</span>
+                    <div class="preset-chip" data-preset="forest">Forest</div>
+                    <div class="preset-chip" data-preset="moss">Moss</div>
+                    <div class="preset-chip" data-preset="earth">Earth</div>
+                    <div class="preset-chip" data-preset="sand">Sand</div>
+                    <div class="preset-chip" data-preset="storm">Storm</div>
+                    <div class="preset-chip" data-preset="dusk">Dusk</div>
+                </div>
+                <!-- Vibrant/Neon -->
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); min-width: 70px; text-transform: uppercase;">Vibrant</span>
+                    <div class="preset-chip" data-preset="neon">Neon</div>
+                    <div class="preset-chip" data-preset="cyberpunk">Cyberpunk</div>
+                    <div class="preset-chip" data-preset="matrix">Matrix</div>
+                    <div class="preset-chip" data-preset="synthwave">Synthwave</div>
+                    <div class="preset-chip" data-preset="vapor">Vapor</div>
+                    <div class="preset-chip" data-preset="electric">Electric</div>
+                    <div class="preset-chip" data-preset="candy">Candy</div>
+                    <div class="preset-chip" data-preset="toxic">Toxic</div>
+                </div>
             </div>
                 <div class="output-style-panel">
     <div class="color-input-group">
@@ -1104,8 +1158,9 @@
                 <label>Grid Gap</label>
                 <select id="outputGridGap">
                     <option value="0">None</option>
-                    <option value="100">Compact</option>
-                    <option value="200" selected>Wide</option>
+                    <option value="50">Tiny</option>
+                    <option value="100" selected>Compact</option>
+                    <option value="200">Wide</option>
                     <option value="300">Extra Wide</option>
                     <option value="400">Postcard</option>
                 </select>
@@ -1366,18 +1421,12 @@
 
         // --- Output Style Presets ---
         const outputPresets = {
+            // === DARK/NIGHT ===
             dark: {
                 bg: '#111111',
                 title: '#ffffff',
                 meta: '#aaaaaa',
                 tsBg: '#000000',
-                tsColor: '#ffffff'
-            },
-            light: {
-                bg: '#f5f5f5',
-                title: '#1a1a1a',
-                meta: '#666666',
-                tsBg: '#333333',
                 tsColor: '#ffffff'
             },
             midnight: {
@@ -1387,19 +1436,56 @@
                 tsBg: '#1a1a3a',
                 tsColor: '#aaaaff'
             },
-            sepia: {
-                bg: '#2a2015',
-                title: '#f4e8d0',
-                meta: '#b8a080',
-                tsBg: '#1a1008',
-                tsColor: '#f4e8d0'
+            noir: {
+                bg: '#0a0a0a',
+                title: '#e5e5e5',
+                meta: '#737373',
+                tsBg: '#171717',
+                tsColor: '#d4d4d4'
             },
-            neon: {
-                bg: '#050510',
-                title: '#00ffff',
-                meta: '#ff00ff',
-                tsBg: '#000000',
-                tsColor: '#00ff00'
+            monochrome: {
+                bg: '#181818',
+                title: '#ffffff',
+                meta: '#808080',
+                tsBg: '#282828',
+                tsColor: '#ffffff'
+            },
+            charcoal: {
+                bg: '#1a1a1a',
+                title: '#d4d4d4',
+                meta: '#737373',
+                tsBg: '#2a2a2a',
+                tsColor: '#e5e5e5'
+            },
+            obsidian: {
+                bg: '#0d0a12',
+                title: '#c8b8e8',
+                meta: '#7a6a9a',
+                tsBg: '#1a1520',
+                tsColor: '#d8c8f8'
+            },
+            abyss: {
+                bg: '#050810',
+                title: '#8eb4d8',
+                meta: '#4a6a8a',
+                tsBg: '#0a1020',
+                tsColor: '#a0c4e8'
+            },
+            graphite: {
+                bg: '#252525',
+                title: '#c0c0c0',
+                meta: '#808080',
+                tsBg: '#353535',
+                tsColor: '#d0d0d0'
+            },
+
+            // === LIGHT/DAY ===
+            light: {
+                bg: '#f5f5f5',
+                title: '#1a1a1a',
+                meta: '#666666',
+                tsBg: '#333333',
+                tsColor: '#ffffff'
             },
             minimal: {
                 bg: '#ffffff',
@@ -1408,40 +1494,12 @@
                 tsBg: '#000000',
                 tsColor: '#ffffff'
             },
-            ocean: {
-                bg: '#0c1929',
-                title: '#7dd3fc',
-                meta: '#38bdf8',
-                tsBg: '#0369a1',
-                tsColor: '#e0f2fe'
-            },
-            forest: {
-                bg: '#0f1f0f',
-                title: '#86efac',
-                meta: '#4ade80',
-                tsBg: '#14532d',
-                tsColor: '#dcfce7'
-            },
-            sunset: {
-                bg: '#1a0a0a',
-                title: '#fbbf24',
-                meta: '#f97316',
-                tsBg: '#7c2d12',
-                tsColor: '#fef3c7'
-            },
-            lavender: {
-                bg: '#1a1025',
-                title: '#e9d5ff',
-                meta: '#c084fc',
-                tsBg: '#581c87',
-                tsColor: '#f3e8ff'
-            },
-            cherry: {
-                bg: '#1a0510',
-                title: '#fda4af',
-                meta: '#fb7185',
-                tsBg: '#881337',
-                tsColor: '#ffe4e6'
+            paper: {
+                bg: '#faf8f5',
+                title: '#292524',
+                meta: '#78716c',
+                tsBg: '#44403c',
+                tsColor: '#fafaf9'
             },
             arctic: {
                 bg: '#f0f9ff',
@@ -1450,12 +1508,49 @@
                 tsBg: '#075985',
                 tsColor: '#ffffff'
             },
-            slate: {
-                bg: '#1e293b',
-                title: '#f1f5f9',
-                meta: '#94a3b8',
+            cream: {
+                bg: '#fdfbf7',
+                title: '#4a3f35',
+                meta: '#8b7355',
+                tsBg: '#5c4a3a',
+                tsColor: '#fff8f0'
+            },
+            snow: {
+                bg: '#f8fafc',
+                title: '#1e3a5f',
+                meta: '#64748b',
                 tsBg: '#334155',
-                tsColor: '#e2e8f0'
+                tsColor: '#f1f5f9'
+            },
+            cloud: {
+                bg: '#f1f5f9',
+                title: '#334155',
+                meta: '#64748b',
+                tsBg: '#475569',
+                tsColor: '#f8fafc'
+            },
+            silver: {
+                bg: '#e8e8e8',
+                title: '#2a2a2a',
+                meta: '#606060',
+                tsBg: '#404040',
+                tsColor: '#f0f0f0'
+            },
+
+            // === WARM ===
+            sepia: {
+                bg: '#2a2015',
+                title: '#f4e8d0',
+                meta: '#b8a080',
+                tsBg: '#1a1008',
+                tsColor: '#f4e8d0'
+            },
+            sunset: {
+                bg: '#1a0a0a',
+                title: '#fbbf24',
+                meta: '#f97316',
+                tsBg: '#7c2d12',
+                tsColor: '#fef3c7'
             },
             ember: {
                 bg: '#0c0804',
@@ -1464,26 +1559,186 @@
                 tsBg: '#451a03',
                 tsColor: '#fef3c7'
             },
-            matrix: {
-                bg: '#000000',
-                title: '#00ff41',
-                meta: '#008f11',
-                tsBg: '#001100',
-                tsColor: '#00ff41'
+            coffee: {
+                bg: '#1c1210',
+                title: '#d4a574',
+                meta: '#a67c52',
+                tsBg: '#2c1810',
+                tsColor: '#f5deb3'
             },
-            noir: {
-                bg: '#0a0a0a',
-                title: '#e5e5e5',
-                meta: '#737373',
-                tsBg: '#171717',
-                tsColor: '#d4d4d4'
+            cherry: {
+                bg: '#1a0510',
+                title: '#fda4af',
+                meta: '#fb7185',
+                tsBg: '#881337',
+                tsColor: '#ffe4e6'
             },
-            paper: {
-                bg: '#faf8f5',
-                title: '#292524',
-                meta: '#78716c',
-                tsBg: '#44403c',
-                tsColor: '#fafaf9'
+            autumn: {
+                bg: '#1a1008',
+                title: '#f59e0b',
+                meta: '#d97706',
+                tsBg: '#78350f',
+                tsColor: '#fef3c7'
+            },
+            terracotta: {
+                bg: '#1c1410',
+                title: '#e07850',
+                meta: '#b85c3c',
+                tsBg: '#6b3020',
+                tsColor: '#fde8dc'
+            },
+            rust: {
+                bg: '#180c08',
+                title: '#e85d04',
+                meta: '#bc4b00',
+                tsBg: '#7c2d12',
+                tsColor: '#fed7aa'
+            },
+            honey: {
+                bg: '#1a1505',
+                title: '#fbbf24',
+                meta: '#d4a012',
+                tsBg: '#78500f',
+                tsColor: '#fef9c3'
+            },
+            wine: {
+                bg: '#1a0810',
+                title: '#f472b6',
+                meta: '#db2777',
+                tsBg: '#831843',
+                tsColor: '#fce7f3'
+            },
+            copper: {
+                bg: '#181210',
+                title: '#e8a060',
+                meta: '#c87840',
+                tsBg: '#6b4020',
+                tsColor: '#fde8d0'
+            },
+
+            // === COOL ===
+            ocean: {
+                bg: '#0c1929',
+                title: '#7dd3fc',
+                meta: '#38bdf8',
+                tsBg: '#0369a1',
+                tsColor: '#e0f2fe'
+            },
+            slate: {
+                bg: '#1e293b',
+                title: '#f1f5f9',
+                meta: '#94a3b8',
+                tsBg: '#334155',
+                tsColor: '#e2e8f0'
+            },
+            lavender: {
+                bg: '#1a1025',
+                title: '#e9d5ff',
+                meta: '#c084fc',
+                tsBg: '#581c87',
+                tsColor: '#f3e8ff'
+            },
+            mint: {
+                bg: '#0a1a18',
+                title: '#6ee7b7',
+                meta: '#34d399',
+                tsBg: '#065f46',
+                tsColor: '#d1fae5'
+            },
+            ice: {
+                bg: '#0c1820',
+                title: '#a5f3fc',
+                meta: '#67e8f9',
+                tsBg: '#155e75',
+                tsColor: '#ecfeff'
+            },
+            steel: {
+                bg: '#151820',
+                title: '#94a3b8',
+                meta: '#64748b',
+                tsBg: '#334155',
+                tsColor: '#e2e8f0'
+            },
+            twilight: {
+                bg: '#0f0a1a',
+                title: '#c4b5fd',
+                meta: '#a78bfa',
+                tsBg: '#4c1d95',
+                tsColor: '#ede9fe'
+            },
+            sapphire: {
+                bg: '#0a1028',
+                title: '#60a5fa',
+                meta: '#3b82f6',
+                tsBg: '#1e3a8a',
+                tsColor: '#dbeafe'
+            },
+            aqua: {
+                bg: '#0a1818',
+                title: '#2dd4bf',
+                meta: '#14b8a6',
+                tsBg: '#115e59',
+                tsColor: '#ccfbf1'
+            },
+            violet: {
+                bg: '#10081a',
+                title: '#c084fc',
+                meta: '#a855f7',
+                tsBg: '#581c87',
+                tsColor: '#f3e8ff'
+            },
+
+            // === NATURE ===
+            forest: {
+                bg: '#0f1f0f',
+                title: '#86efac',
+                meta: '#4ade80',
+                tsBg: '#14532d',
+                tsColor: '#dcfce7'
+            },
+            moss: {
+                bg: '#101810',
+                title: '#84cc16',
+                meta: '#65a30d',
+                tsBg: '#365314',
+                tsColor: '#ecfccb'
+            },
+            earth: {
+                bg: '#151510',
+                title: '#a3a070',
+                meta: '#84805a',
+                tsBg: '#3a3820',
+                tsColor: '#e8e8d8'
+            },
+            sand: {
+                bg: '#1a1815',
+                title: '#d4c4a8',
+                meta: '#a89878',
+                tsBg: '#4a4030',
+                tsColor: '#f4ece0'
+            },
+            storm: {
+                bg: '#101418',
+                title: '#94a3b8',
+                meta: '#64748b',
+                tsBg: '#1e293b',
+                tsColor: '#cbd5e1'
+            },
+            dusk: {
+                bg: '#121018',
+                title: '#c4a8d8',
+                meta: '#9878b8',
+                tsBg: '#3a2850',
+                tsColor: '#e8daf0'
+            },
+
+            // === VIBRANT/NEON ===
+            neon: {
+                bg: '#050510',
+                title: '#00ffff',
+                meta: '#ff00ff',
+                tsBg: '#000000',
+                tsColor: '#00ff00'
             },
             cyberpunk: {
                 bg: '#0d0015',
@@ -1492,19 +1747,47 @@
                 tsBg: '#1a0033',
                 tsColor: '#ffff00'
             },
-            coffee: {
-                bg: '#1c1210',
-                title: '#d4a574',
-                meta: '#a67c52',
-                tsBg: '#2c1810',
-                tsColor: '#f5deb3'
+            matrix: {
+                bg: '#000000',
+                title: '#00ff41',
+                meta: '#008f11',
+                tsBg: '#001100',
+                tsColor: '#00ff41'
             },
-            monochrome: {
-                bg: '#181818',
-                title: '#ffffff',
-                meta: '#808080',
-                tsBg: '#282828',
-                tsColor: '#ffffff'
+            synthwave: {
+                bg: '#0a0014',
+                title: '#ff6ad5',
+                meta: '#c774e8',
+                tsBg: '#2d1b4e',
+                tsColor: '#94d0ff'
+            },
+            vapor: {
+                bg: '#1a0a20',
+                title: '#ff71ce',
+                meta: '#01cdfe',
+                tsBg: '#2d1040',
+                tsColor: '#05ffa1'
+            },
+            electric: {
+                bg: '#050515',
+                title: '#00d4ff',
+                meta: '#7b2fff',
+                tsBg: '#101030',
+                tsColor: '#00ff88'
+            },
+            candy: {
+                bg: '#150818',
+                title: '#ff6b9d',
+                meta: '#c44569',
+                tsBg: '#4a1942',
+                tsColor: '#ffb8d0'
+            },
+            toxic: {
+                bg: '#080a00',
+                title: '#c6ff00',
+                meta: '#76ff03',
+                tsBg: '#1a2000',
+                tsColor: '#eeff41'
             }
         };
 
@@ -1605,8 +1888,6 @@
             function selectStyleFromAnalysis(analysis) {
                 const { brightness, saturation, dominantHue, warmth } = analysis;
                 
-                // Decision tree for style selection
-                
                 // Very dark content
                 if (brightness < 0.25) {
                     if (saturation > 0.3) {
@@ -1616,13 +1897,15 @@
                         if (dominantHue === 'red' || dominantHue === 'orange') return 'ember';
                         return 'neon';
                     }
+                    if (brightness < 0.15) return 'abyss';
                     return 'noir';
                 }
                 
                 // Very bright content
                 if (brightness > 0.7) {
                     if (saturation < 0.15) return 'paper';
-                    if (warmth > 0.1) return 'arctic';
+                    if (warmth > 0.15) return 'cream';
+                    if (warmth < -0.1) return 'snow';
                     return 'light';
                 }
                 
@@ -1630,16 +1913,19 @@
                 if (saturation > 0.25) {
                     switch (dominantHue) {
                         case 'blue':
+                            return brightness > 0.5 ? 'sapphire' : 'ocean';
                         case 'cyan':
-                            return 'ocean';
+                            return 'aqua';
                         case 'green':
-                            return 'forest';
+                            return brightness > 0.4 ? 'mint' : 'forest';
                         case 'red':
                             return 'cherry';
                         case 'orange':
+                            return warmth > 0.2 ? 'rust' : 'sunset';
                         case 'yellow':
-                            return warmth > 0.15 ? 'sunset' : 'ember';
+                            return warmth > 0.15 ? 'honey' : 'ember';
                         case 'purple':
+                            return 'violet';
                         case 'magenta':
                             return 'lavender';
                         default:
@@ -1649,16 +1935,19 @@
                 
                 // Low saturation (grayscale-ish)
                 if (saturation < 0.1) {
+                    if (brightness < 0.3) return 'charcoal';
                     if (brightness < 0.4) return 'monochrome';
                     if (brightness > 0.6) return 'minimal';
-                    return 'slate';
+                    return 'graphite';
                 }
                 
                 // Default medium cases
-                if (warmth > 0.1) return 'sepia';
-                if (warmth < -0.1) return 'midnight';
+                if (warmth > 0.15) return 'terracotta';
+                if (warmth > 0.05) return 'sepia';
+                if (warmth < -0.15) return 'twilight';
+                if (warmth < -0.05) return 'midnight';
                 
-                return 'dark';
+                return 'slate';
             }
 
             function applyAutoStyle(canvas) {
@@ -1675,7 +1964,7 @@
                     outputTimestampBg.value = preset.tsBg;
                     outputTimestampColor.value = preset.tsColor;
                     
-                    autoStyleIndicator.textContent = `✓ "${selectedPreset}" selected`;
+                    autoStyleIndicator.textContent = `✓ "${selectedPreset}" is recommended`;
                     autoStyleIndicator.style.display = 'inline';
                     
                     console.log('Auto-style analysis:', analysis);
